@@ -1,0 +1,87 @@
+!    -*- f90 -*-
+python module setic__user__routines 
+    interface setic_user_interface 
+        function surface(x,y) ! in :wave2D:main.f:setic:unknown_interface
+            real*8 :: x
+            real*8 :: y
+            real*8 :: surface
+        end function surface
+    end interface setic_user_interface
+end python module setic__user__routines
+python module setbottom__user__routines 
+    interface setbottom_user_interface 
+        function bottom(x,y) ! in :wave2D:main.f:setbottom:unknown_interface
+            real*8 :: x
+            real*8 :: y
+            real*8 :: bottom
+        end function bottom
+    end interface setbottom_user_interface
+end python module setbottom__user__routines
+python module timeloop__user__routines 
+    interface timeloop_user_interface 
+        real*8 :: surface
+        real*8 :: bottom
+    end interface timeloop_user_interface
+end python module timeloop__user__routines
+python module wave2D ! in 
+    interface  ! in :wave2D
+        function h1(x,y) ! in :wave2D:main.f
+            real*8 :: x
+            real*8 :: y
+            real*8 :: h1
+        end function h1
+        function bell1(x,y) ! in :wave2D:main.f
+            real*8 :: x
+            real*8 :: y
+            real*8 :: bell1
+        end function bell1
+        subroutine setic(u,um,n,surface) ! in :wave2D:main.f
+            use setic__user__routines
+            real*8 dimension(n,n),intent(in,out) :: u
+            real*8 dimension(n,n),depend(n,n) :: um
+            integer optional,check(shape(u,0)==n),depend(u) :: n=shape(u,0)
+            external surface
+        end subroutine setic
+        subroutine setbottom(lambda,n,bottom) ! in :wave2D:main.f
+            use setbottom__user__routines
+            real*8 dimension(n,n) :: lambda
+            integer optional,check(shape(lambda,0)==n),depend(lambda) :: n=shape(lambda,0)
+            external bottom
+        end subroutine setbottom
+        subroutine timeloop(up,u,um,lambda,n,tstop,dt,bottom,surface,dumpsolution) ! in :wave2D:main.f
+            use setic__user__routines
+            use setbottom__user__routines
+            real*8 dimension(n,n),intent(in,out) :: up
+            real*8 dimension(n,n),depend(n,n) :: u
+            real*8 dimension(n,n),depend(n,n) :: um
+            real*8 dimension(n,n),depend(n,n) :: lambda
+            integer optional,check(shape(up,0)==n),depend(up) :: n=shape(up,0)
+            real*8 :: tstop
+            real*8 :: dt
+            external bottom
+            external surface
+            integer :: dumpsolution
+        end subroutine timeloop
+        subroutine solveatthistimestep(up,u,um,lambda,n,dt) ! in :wave2D:main.f
+            real*8 dimension(n,n),intent(in,out) :: up
+            real*8 dimension(n,n),depend(n,n) :: u
+            real*8 dimension(n,n),depend(n,n) :: um
+            real*8 dimension(n,n),depend(n,n) :: lambda
+            integer optional,check(shape(up,0)==n),depend(up) :: n=shape(up,0)
+            real*8 :: dt
+        end subroutine solveatthistimestep
+        subroutine dump(u,n,timelevel) ! in :wave2D:main.f
+            real*8 dimension(n,n) :: u
+            integer optional,check(shape(u,0)==n),depend(u) :: n=shape(u,0)
+            integer :: timelevel
+        end subroutine dump
+        subroutine dumpb(u,n,timelevel) ! in :wave2D:main.f
+            real*8 dimension(n,n) :: u
+            integer optional,check(shape(u,0)==n),depend(u) :: n=shape(u,0)
+            integer :: timelevel
+        end subroutine dumpb
+    end interface 
+end python module wave2D
+
+! This file was auto-generated with f2py (version:2.37.233-1545).
+! See http://cens.ioc.ee/projects/f2py2e/

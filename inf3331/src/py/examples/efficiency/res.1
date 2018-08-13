@@ -1,0 +1,90 @@
+
+Multiplication test:
+
+20000000 multiplications in a loop
+F77  (100 calls): elapsed=8.51588, CPU=8.49
+cost of a multiplication in F77: 4.245e-09
+ flops_py (2 calls): elapsed=18.2047, CPU=18.16
+for calibration empty_loop (2 calls): elapsed=5.1141, CPU=5.08
+cost of a multiplication in Python: 3.27e-07
+
+=> a*b is 100 times faster in F77
+
+
+Test of different types of loops
+
+rangetests: n = 2880000
+a[i]=i+2 xrangeloops2 (1 calls): elapsed=2.07704, CPU=2.06
+2.06
+a[i]=i+2 xrangeloops (1 calls): elapsed=2.07835, CPU=2.06
+2.06
+a[i]=i+2 rangeloops (1 calls): elapsed=2.83363, CPU=2.73
+2.73
+empty loop xrangeloops2_empty (5 calls): elapsed=2.68606, CPU=2.56
+0.512
+empty loop xrangeloops_empty (5 calls): elapsed=2.60071, CPU=2.54
+0.508
+empty loop rangeloops_empty (5 calls): elapsed=6.0206, CPU=5.81
+1.162
+
+=> in a a[i]=i+2 type of loop, the loop management is about 25% of the
+   total CPU time (the a[i] look up is probably the most expensive part)
+
+
+allocate n numbers in an array/list: n = 1000000
+ NumPy_random (3 calls): elapsed=1.63004, CPU=1.5
+0.5
+ list_append1 (3 calls): elapsed=5.05303, CPU=4.93
+1.64333333333
+ list_chunk1 (3 calls): elapsed=2.48437, CPU=2.42
+0.806666666667
+ list_append2 (3 calls): elapsed=34.6879, CPU=33.48
+11.16
+ list_chunk2 (3 calls): elapsed=35.0452, CPU=29.7
+9.9
+ list_append3 (3 calls): elapsed=34.7389, CPU=32.2
+10.7333333333
+ list_chunk3 (3 calls): elapsed=28.0834, CPU=28
+9.33333333333
+
+
+
+ empty_func (5000000 calls): elapsed=9.58795, CPU=9.53
+1.906e-06
+ F77 repetitions: 500000000 of fempty
+  0.100000001
+loop over fempty in  F77  (1 calls): elapsed=4.67693, CPU=4.65
+9.3e-09
+ func_with_consts in F77 (5000000 calls): elapsed=25.9622, CPU=25.86
+5.172e-06
+ F77 repetitions: 500000000 of fwconsts
+  0.100000001
+loop over fwconsts in F77  (1 calls): elapsed=8.67545, CPU=8.56
+1.712e-08
+ empty_func (5000000 calls): elapsed=9.6648, CPU=9.6
+1.92e-06
+ func_with_consts1 (5000000 calls): elapsed=17.9025, CPU=17.88
+3.576e-06
+ func_with_consts2 (5000000 calls): elapsed=16.9552, CPU=16.95
+3.39e-06
+ func_py4cs_funcs_math_sin (5000000 calls): elapsed=22.8435, CPU=22.52
+4.504e-06
+ func_math_sin (5000000 calls): elapsed=21.4174, CPU=19.64
+3.928e-06
+ func_sin (5000000 calls): elapsed=20.5176, CPU=17.82
+3.564e-06
+
+
+                      /-----------------------\
+                     < F2PY performance report >
+                      \-----------------------/
+Overall time spent in ...
+(a) wrapped (Fortran/C) functions           :    24659 msec
+(b) f2py interface,           5000102 calls  :     8038 msec
+(c) call-back (Python) functions            :        0 msec
+(d) f2py call-back interface,      0 calls  :        0 msec
+(e) wrapped (Fortran/C) functions (acctual) :    24659 msec
+
+Use -DF2PY_REPORT_ATEXIT_DISABLE to disable this message.
+Exit status: 0
+Modules    : call

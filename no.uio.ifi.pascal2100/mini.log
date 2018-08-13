@@ -1,0 +1,39 @@
+   1: /* wats up mini */ 
+   2: program Mini; 
+Parser:   <program>
+   3: begin 
+   4:    write('x'); 
+Parser:     <block>
+Parser:       <statm list>
+Parser:         <statement>
+Parser:           <proc call>
+Parser:             <expression >
+Parser:               <simple expr >
+Parser:                 <term>
+Parser:                   <factor>
+Parser:                     <constant>
+Parser:                       <char literal>
+Parser:                       </char literal>
+Parser:                     </constant>
+Parser:                   </factor>
+Parser:                 </term>
+Parser:               </simple expr>
+Parser:             </expression>
+   5: end. 
+Parser:           </proc call>
+Parser:         </statement>
+Parser:         <statement>
+Parser:           <empty statm>
+Parser:           </empty statm>
+Parser:         </statement>
+Parser:       </statm list>
+Parser:     </block>
+Parser:   </program>
+
+program Mini ; 
+
+
+begin 
+  write('x') ; 
+  
+end.

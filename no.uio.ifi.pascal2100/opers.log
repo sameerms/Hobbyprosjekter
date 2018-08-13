@@ -1,0 +1,1470 @@
+   1: program OperatorTest; 
+Parser:   <program>
+   2:  
+   3: type bool = Boolean;  int = integer; 
+Parser:     <block>
+Parser:       <type decl part>
+Parser:         <type Decl>
+Parser:           <type name>
+Parser:           </type name>
+Parser:           <type>
+Parser:             <type name>
+Parser:             </type name>
+Parser:           </type>
+Parser:         </type Decl>
+Parser:         <type Decl>
+Parser:           <type name>
+Parser:           </type name>
+Parser:           <type>
+Parser:             <type name>
+   4:  
+   5:  
+   6: procedure TestUnaryBoolean; 
+Parser:             </type name>
+Parser:           </type>
+Parser:         </type Decl>
+Parser:       </type decl part>
+Parser:       <proc decl>
+   7:  
+   8:    procedure Test (x: bool); 
+Parser:         <block>
+Parser:           <proc decl>
+Parser:             <param decl list>
+Parser:               <param decl>
+Parser:                 <type name>
+Parser:                 </type name>
+Parser:               </param decl >
+   9:    begin 
+Parser:             </param decl list>
+  10:       write('not ', x, ' = ', not x, eol); 
+Parser:             <block>
+Parser:               <statm list>
+Parser:                 <statement>
+Parser:                   <proc call>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <negation>
+Parser:                               <factor>
+Parser:                                 <variable>
+Parser:                                 </variable>
+Parser:                               </factor>
+Parser:                             </negation>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+  11:    end; { Test } 
+Parser:                   </proc call>
+Parser:                 </statement>
+Parser:                 <statement>
+Parser:                   <empty statm>
+Parser:                   </empty statm>
+Parser:                 </statement>
+Parser:               </statm list>
+  12:  
+  13: begin 
+Parser:             </block>
+  14:    Test(false);  Test(true); 
+Parser:           </proc decl>
+Parser:           <statm list>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  15: end; { TestUnaryBoolean } 
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <empty statm>
+Parser:               </empty statm>
+Parser:             </statement>
+Parser:           </statm list>
+  16:  
+  17:  
+  18: procedure TestBinaryBoolean; 
+Parser:         </block>
+Parser:       </proc decl>
+Parser:       <proc decl>
+  19:  
+  20:    procedure Test (x: bool;  y: bool); 
+Parser:         <block>
+Parser:           <proc decl>
+Parser:             <param decl list>
+Parser:               <param decl>
+Parser:                 <type name>
+Parser:                 </type name>
+Parser:               </param decl >
+Parser:               <param decl>
+Parser:                 <type name>
+Parser:                 </type name>
+Parser:               </param decl >
+  21:    begin 
+Parser:             </param decl list>
+  22:       write(x, ' and ', y, ' = ', x and y, eol); 
+Parser:             <block>
+Parser:               <statm list>
+Parser:                 <statement>
+Parser:                   <proc call>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                           <factor opr>
+Parser:                           </factor opr>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+  23:       write(x, ' or ', y, ' = ', x or y, eol); 
+Parser:                   </proc call>
+Parser:                 </statement>
+Parser:                 <statement>
+Parser:                   <proc call>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                         <term opr>
+Parser:                         </term opr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+  24:    end; { Test } 
+Parser:                   </proc call>
+Parser:                 </statement>
+Parser:                 <statement>
+Parser:                   <empty statm>
+Parser:                   </empty statm>
+Parser:                 </statement>
+Parser:               </statm list>
+  25:  
+  26: begin 
+Parser:             </block>
+  27:    Test(false, false);  Test(false, true); 
+Parser:           </proc decl>
+Parser:           <statm list>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  28:    Test(true, false);  Test(true, true); 
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  29: end; { TestBinaryBoolean } 
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <empty statm>
+Parser:               </empty statm>
+Parser:             </statement>
+Parser:           </statm list>
+  30:  
+  31:  
+  32: procedure TestUnaryNumeric; 
+Parser:         </block>
+Parser:       </proc decl>
+Parser:       <proc decl>
+  33:  
+  34:    procedure Test (x: int); 
+Parser:         <block>
+Parser:           <proc decl>
+Parser:             <param decl list>
+Parser:               <param decl>
+Parser:                 <type name>
+Parser:                 </type name>
+Parser:               </param decl >
+  35:    begin 
+Parser:             </param decl list>
+  36:       write('- ', x, ' = ', -x, eol); 
+Parser:             <block>
+Parser:               <statm list>
+Parser:                 <statement>
+Parser:                   <proc call>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <prefix opr>
+Parser:                         </prefix opr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+  37:       write('+ ', x, ' = ', +x, eol); 
+Parser:                   </proc call>
+Parser:                 </statement>
+Parser:                 <statement>
+Parser:                   <proc call>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <prefix opr>
+Parser:                         </prefix opr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+  38:    end; { Test } 
+Parser:                   </proc call>
+Parser:                 </statement>
+Parser:                 <statement>
+Parser:                   <empty statm>
+Parser:                   </empty statm>
+Parser:                 </statement>
+Parser:               </statm list>
+  39:  
+  40: begin 
+Parser:             </block>
+  41:    Test(17);  Test(-11);  Test(0); 
+Parser:           </proc decl>
+Parser:           <statm list>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <prefix opr>
+Parser:                     </prefix opr>
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  42: end; { TestUnaryNumeric } 
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <empty statm>
+Parser:               </empty statm>
+Parser:             </statement>
+Parser:           </statm list>
+  43:  
+  44:  
+  45: procedure TestBinaryNumeric; 
+Parser:         </block>
+Parser:       </proc decl>
+Parser:       <proc decl>
+  46:  
+  47:    procedure Test (x: int;  y: int); 
+Parser:         <block>
+Parser:           <proc decl>
+Parser:             <param decl list>
+Parser:               <param decl>
+Parser:                 <type name>
+Parser:                 </type name>
+Parser:               </param decl >
+Parser:               <param decl>
+Parser:                 <type name>
+Parser:                 </type name>
+Parser:               </param decl >
+  48:    begin 
+Parser:             </param decl list>
+  49:       write(x, ' + ', y, ' = ', x + y, eol); 
+Parser:             <block>
+Parser:               <statm list>
+Parser:                 <statement>
+Parser:                   <proc call>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                         <term opr>
+Parser:                         </term opr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+  50:       write(x, ' - ', y, ' = ', x - y, eol); 
+Parser:                   </proc call>
+Parser:                 </statement>
+Parser:                 <statement>
+Parser:                   <proc call>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                         <term opr>
+Parser:                         </term opr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+  51:       write(x, ' * ', y, ' = ', x * y, eol); 
+Parser:                   </proc call>
+Parser:                 </statement>
+Parser:                 <statement>
+Parser:                   <proc call>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <string literal>
+Parser:                               </string literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                           <factor opr>
+Parser:                           </factor opr>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+  52:       if y <> 0 then begin 
+Parser:                   </proc call>
+Parser:                 </statement>
+Parser:                 <statement>
+Parser:                   <if-statm>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                       <rel operator>
+Parser:                       </rel operator>
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <number literal>
+Parser:                               </number literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+  53: 	 write(x, ' div ', y, ' = ', x div y, eol); 
+Parser:                     <statement>
+Parser:                       <compound statm>
+Parser:                         <statm list>
+Parser:                           <statement>
+Parser:                             <proc call>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <constant>
+Parser:                                         <string literal>
+Parser:                                         </string literal>
+Parser:                                       </constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <constant>
+Parser:                                         <string literal>
+Parser:                                         </string literal>
+Parser:                                       </constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                     <factor opr>
+Parser:                                     </factor opr>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+  54: 	 write(x, ' mod ', y, ' = ', x mod y, eol); 
+Parser:                             </proc call>
+Parser:                           </statement>
+Parser:                           <statement>
+Parser:                             <proc call>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <constant>
+Parser:                                         <string literal>
+Parser:                                         </string literal>
+Parser:                                       </constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <constant>
+Parser:                                         <string literal>
+Parser:                                         </string literal>
+Parser:                                       </constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                     <factor opr>
+Parser:                                     </factor opr>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+  55:       end 
+Parser:                             </proc call>
+Parser:                           </statement>
+  56:    end; { Test } 
+Parser:                           <statement>
+Parser:                             <empty statm>
+Parser:                             </empty statm>
+Parser:                           </statement>
+Parser:                         </statm list>
+Parser:                       </compound statm>
+Parser:                     </statement>
+Parser:                   </if-statm>
+Parser:                 </statement>
+Parser:               </statm list>
+  57:  
+  58: begin 
+Parser:             </block>
+  59:    Test(17, 17);  Test(17, -11);  Test(17, 0); 
+Parser:           </proc decl>
+Parser:           <statm list>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <prefix opr>
+Parser:                     </prefix opr>
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  60:    Test(-11, 17);  Test(-11, -11);  Test(17, 0); 
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <prefix opr>
+Parser:                     </prefix opr>
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <prefix opr>
+Parser:                     </prefix opr>
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <prefix opr>
+Parser:                     </prefix opr>
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  61:    Test(0, 17);  Test(0, -11);  Test(0, 0); 
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <prefix opr>
+Parser:                     </prefix opr>
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  62: end; { TestBinaryNumeric } 
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <empty statm>
+Parser:               </empty statm>
+Parser:             </statement>
+Parser:           </statm list>
+  63:  
+  64:  
+  65: begin 
+Parser:         </block>
+  66:    TestUnaryBoolean;  TestUnaryNumeric; 
+Parser:       </proc decl>
+Parser:       <statm list>
+Parser:         <statement>
+Parser:           <proc call>
+Parser:           </proc call>
+Parser:         </statement>
+Parser:         <statement>
+Parser:           <proc call>
+  67:    TestBinaryBoolean;  TestBinaryNumeric; 
+Parser:           </proc call>
+Parser:         </statement>
+Parser:         <statement>
+Parser:           <proc call>
+Parser:           </proc call>
+Parser:         </statement>
+Parser:         <statement>
+Parser:           <proc call>
+  68: end. 
+Parser:           </proc call>
+Parser:         </statement>
+Parser:         <statement>
+Parser:           <empty statm>
+Parser:           </empty statm>
+Parser:         </statement>
+Parser:       </statm list>
+Parser:     </block>
+Parser:   </program>
+
+program OperatorTest ; 
+  typebool=Boolean;int=integer;procedureTestUnaryBoolean;procedureTest( x:bool );
+
+    begin 
+      write( - 'not ', - x, - ' = ', - notx, - eol) ; 
+      
+    end;
+
+  begin 
+    Test( - false) ; 
+    Test( - true) ; 
+    
+  end;procedureTestBinaryBoolean;procedureTest( x:bool ; y:bool );
+
+      begin 
+        write( - x, - ' and ', - y, - ' = ', - x and y, - eol) ; 
+        write( - x, - ' or ', - y, - ' = ', - x or y, - eol) ; 
+        
+      end;
+
+    begin 
+      Test( - false, - false) ; 
+      Test( - false, - true) ; 
+      Test( - true, - false) ; 
+      Test( - true, - true) ; 
+      
+    end;procedureTestUnaryNumeric;procedureTest( x:int );
+
+      begin 
+        write( - '- ', - x, - ' = ', - x, - eol) ; 
+        write( - '+ ', - x, - ' = ', - x, - eol) ; 
+        
+      end;
+
+    begin 
+      Test( - 17) ; 
+      Test( - 11) ; 
+      Test( - 0) ; 
+      
+    end;procedureTestBinaryNumeric;procedureTest( x:int ; y:int );
+
+        begin 
+          write( - x, - ' + ', - y, - ' = ', - x + y, - eol) ; 
+          write( - x, - ' - ', - y, - ' = ', - x - y, - eol) ; 
+          write( - x, - ' * ', - y, - ' = ', - x  y, - eol) ; 
+             if  - y <>  - 0 then beginwrite( - x, - ' div ', - y, - ' = ', - x div y, - eol) ; 
+                write( - x, - ' mod ', - y, - ' = ', - x mod y, - eol) ; 
+                
+              end
+            end;
+
+          begin 
+            Test( - 17, - 17) ; 
+            Test( - 17, - 11) ; 
+            Test( - 17, - 0) ; 
+            Test( - 11, - 17) ; 
+            Test( - 11, - 11) ; 
+            Test( - 17, - 0) ; 
+            Test( - 0, - 17) ; 
+            Test( - 0, - 11) ; 
+            Test( - 0, - 0) ; 
+            
+          end;
+
+        begin 
+          TestUnaryBoolean ; 
+          TestUnaryNumeric ; 
+          TestBinaryBoolean ; 
+          TestBinaryNumeric ; 
+          
+        end.

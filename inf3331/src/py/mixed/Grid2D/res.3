@@ -1,0 +1,150 @@
+Results after pre-compiled objects in eval:
+
+Pure Python:
+evaluating sin(x*y) + 8*x
+vectorized code with eval... (20 calls)
+eval(str) Grid2D.__call__ (20 calls): elapsed=8.31232, CPU=8.17
+vectorized code with function call... (20 calls)
+myfunc Grid2D.__call__ (20 calls): elapsed=8.2199, CPU=8.14
+explicit loops with formula hardcoded...(1 call)
+ Grid2D.gridloop_hardcoded_func (1 calls): elapsed=31.6436, CPU=29.57
+explicit loops with eval...(1 call)
+eval(str) Grid2D.gridloop (1 calls): elapsed=38.2618, CPU=37.67
+explicit loops with myfunc...(1 call)
+myfunc Grid2D.gridloop (1 calls): elapsed=32.6847, CPU=32.2
+explicit loops with list and eval...(1 call)
+eval(str) Grid2D.gridloop_list (1 calls): elapsed=30.7988, CPU=30.23
+explicit loops with list and myfunc...(1 call)
+myfunc Grid2D.gridloop_list (1 calls): elapsed=24.8399, CPU=24.45
+
+F77 stand-alone program:
+we make a test run:
+ call gridloop1 was run 50 times!
+ in f2  0.
+ in f2  0.5
+ in f2  1.
+ in f2  1.
+ in f2  1.5
+ in f2  2.
+ in f2  2.
+ in f2  2.5
+ in f2  3.
+value at ( 0.000, 0.000) = a(  0,  0) =  0.00000E+00
+value at ( 0.500, 0.000) = a(  1,  0) =  0.50000E+00
+value at ( 1.000, 0.000) = a(  2,  0) =  0.10000E+01
+value at ( 0.000, 0.500) = a(  0,  1) =  0.10000E+01
+value at ( 0.500, 0.500) = a(  1,  1) =  0.15000E+01
+value at ( 1.000, 0.500) = a(  2,  1) =  0.20000E+01
+value at ( 0.000, 1.000) = a(  0,  2) =  0.20000E+01
+value at ( 0.500, 1.000) = a(  1,  2) =  0.25000E+01
+value at ( 1.000, 1.000) = a(  2,  2) =  0.30000E+01
+cmd: ./tmp.app; elapsed=7.000000.2 cpu=6.990000.2
+F77 extension module:
+ Grid2Deff.ext_gridloop1 (1 calls): elapsed=22.0572, CPU=21.93
+ Grid2Deff.ext_gridloop2 (1 calls): elapsed=21.6201, CPU=21.48
+ Grid2Deff.ext_gridloop2 (1 calls): elapsed=28.7998, CPU=28.47
+
+Results using an extension module (1100x1100 grid),
+with callback to Python for each point:
+gridloop1 (w/func):               21.93
+gridloop2 (w/func):               21.48
+gridloop1 (w/string expression):  28.47
+
+ Grid2Deff.ext_gridloop_vec2 (20 calls): elapsed=14.6083, CPU=14.58
+gridloop_vec (w/func & NumPy):    0.729
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ func_str=myfunc
+ Grid2Deff.ext_gridloop2_str (20 calls): elapsed=3.44254, CPU=3.45
+gridloop2_str (no Py callback):   0.1725
+C extension module; a single handwritten function:
+['__doc__', '__file__', '__name__', 'gridloop1', 'gridloop2']
+module ext_gridloop:
+   gridloop1(a, xcoor, ycoor, pyfunc)
+   a = gridloop2(xcoor, ycoor, pyfunc)
+ Grid2Deff.ext_gridloop1 (1 calls): elapsed=20.9142, CPU=20.7
+ Grid2Deff.ext_gridloop2 (1 calls): elapsed=21.216, CPU=20.74
+ Grid2Deff.ext_gridloop2 (1 calls): elapsed=28.1891, CPU=27.7
+
+Results using an extension module (1100x1100 grid),
+with callback to Python for each point:
+gridloop1 (w/func):               20.7
+gridloop2 (w/func):               20.74
+gridloop1 (w/string expression):  27.7
+
+C extension module; separate function and handwritten wrapper:
+['__doc__', '__file__', '__name__', 'gridloop1', 'gridloop2']
+module ext_gridloop:
+   gridloop1(a, xcoor, ycoor, pyfunc)
+   a = gridloop2(xcoor, ycoor, pyfunc)
+ Grid2Deff.ext_gridloop1 (1 calls): elapsed=20.821, CPU=20.67
+ Grid2Deff.ext_gridloop2 (1 calls): elapsed=20.9315, CPU=20.58
+ Grid2Deff.ext_gridloop2 (1 calls): elapsed=30.1493, CPU=28.01
+
+Results using an extension module (1100x1100 grid),
+with callback to Python for each point:
+gridloop1 (w/func):               20.67
+gridloop2 (w/func):               20.58
+gridloop1 (w/string expression):  28.01
+
+C++ extension module; handwritten wrapper + class:
+['__doc__', '__file__', '__name__', 'gridloop1', 'gridloop2']
+ Grid2Deff.ext_gridloop1 (1 calls): elapsed=21.4194, CPU=20.63
+Creating array(1101,1101)
+ Grid2Deff.ext_gridloop2 (1 calls): elapsed=21.1566, CPU=20.64
+Creating array(1101,1101)
+ Grid2Deff.ext_gridloop2 (1 calls): elapsed=28.1961, CPU=27.87
+
+Results using an extension module (1100x1100 grid),
+with callback to Python for each point:
+gridloop1 (w/func):               20.63
+gridloop2 (w/func):               20.64
+gridloop1 (w/string expression):  27.87
+
+C++ extension module; handwritten wrapper using SCXX:
+['__doc__', '__file__', '__name__', 'gridloop1', 'gridloop2']
+ Grid2Deff.ext_gridloop1 (1 calls): elapsed=30.7811, CPU=28.58
+Creating array(1101,1101)
+ Grid2Deff.ext_gridloop2 (1 calls): elapsed=41.2051, CPU=37.94
+Creating array(1101,1101)
+ Grid2Deff.ext_gridloop2 (1 calls): elapsed=55.4768, CPU=54.13
+
+Results using an extension module (1100x1100 grid),
+with callback to Python for each point:
+gridloop1 (w/func):               28.58
+gridloop2 (w/func):               37.94
+gridloop1 (w/string expression):  54.13
+
+C++ extension module; conversion class wrapped with SWIG:
+['Convert_MyArray', 'Convert_MyArrayPtr', '__builtins__', '__doc__', '__file__', '__name__', '_ext_gridloop', '_newclass', '_object', '_swig_getattr', '_swig_setattr', 'gridloop1', 'gridloop2', 'types']
+starting up g.ext_gridloop1(myfunc)....
+g.ext_gridloop1(myfunc): 20.88
+g.ext_gridloop2(myfunc): 20.76
+g.ext_gridloop2(expression): 27.76
+
+Results using an extension module (1100x1100 grid),
+with callback to Python for each point:
+gridloop1 (w/func):               20.88
+gridloop2 (w/func):               20.76
+gridloop1 (w/string expression):  27.76
+
+C++ standalone program (with MyArray and gridloop1):
+gridloop1 called 50 times!
+cmd: ./tmp.app 1100; elapsed=7.940000.2 cpu=7.390000.2

@@ -1,0 +1,5 @@
+   1: program mini ; 
+Parser:   <program>
+   2: while ('i' 'am ''a akffikfkf') 
+Parser:     <block>
+Error in line 2: Expected a begin but found a while!

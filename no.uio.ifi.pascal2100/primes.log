@@ -1,0 +1,1061 @@
+   1: /* 
+   2: This program prints all primes up to Limit 
+   3: {which is 1000 in this example} 
+   4: using a technique called 'The sieve of Eratosthenes'. 
+   5: */ 
+   6:  
+   7: program Primes; 
+Parser:   <program>
+   8:  
+   9: const Limit = 1000; 
+Parser:     <block>
+Parser:       <const decl part>
+Parser:         <const decl>
+Parser:           <constant>
+Parser:             <number literal>
+  10:  
+  11: var prime : array [2..Limit] of Boolean; 
+Parser:             </number literal>
+Parser:           </constant>
+Parser:         </const decl>
+Parser:       </const decl part>
+Parser:       <var decl part>
+Parser:         <var decl>
+Parser:           <type>
+Parser:             <array-type>
+Parser:               <type>
+Parser:                 <range-type>
+Parser:                   <constant>
+Parser:                     <number literal>
+Parser:                     </number literal>
+Parser:                   </constant>
+Parser:                   <constant>
+Parser:                     <named constant>
+Parser:                     </named constant>
+Parser:                   </constant>
+Parser:                 </range-type>
+Parser:               </type>
+Parser:               <type>
+Parser:                 <type name>
+  12:    i	  : integer; 
+Parser:                 </type name>
+Parser:               </type>
+Parser:             </array-type>
+Parser:           </type>
+Parser:         </var decl >
+Parser:         <var decl>
+Parser:           <type>
+Parser:             <type name>
+  13:  
+  14:  
+  15: procedure FindPrimes; 
+Parser:             </type name>
+Parser:           </type>
+Parser:         </var decl >
+Parser:       </var decl part>
+Parser:       <proc decl>
+  16: var i1 : integer;    I2 : Integer; 
+Parser:         <block>
+Parser:           <var decl part>
+Parser:             <var decl>
+Parser:               <type>
+Parser:                 <type name>
+Parser:                 </type name>
+Parser:               </type>
+Parser:             </var decl >
+Parser:             <var decl>
+Parser:               <type>
+Parser:                 <type name>
+  17: begin 
+Parser:                 </type name>
+Parser:               </type>
+  18:    i1 := 2; 
+Parser:             </var decl >
+Parser:           </var decl part>
+Parser:           <statm list>
+Parser:             <statement>
+Parser:               <assign statm>
+Parser:                 <variable>
+Parser:                 </variable>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+  19:    while i1 <= Limit div 2 do begin 
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </assign statm>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <while-statm>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                   <rel operator>
+Parser:                   </rel operator>
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                       <factor opr>
+Parser:                       </factor opr>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  20:       i2 := 2*i1; 
+Parser:                 <statement>
+Parser:                   <compound statm>
+Parser:                     <statm list>
+Parser:                       <statement>
+Parser:                         <assign statm>
+Parser:                           <variable>
+Parser:                           </variable>
+Parser:                           <expression >
+Parser:                             <simple expr >
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <constant>
+Parser:                                     <number literal>
+Parser:                                     </number literal>
+Parser:                                   </constant>
+Parser:                                 </factor>
+Parser:                                 <factor opr>
+Parser:                                 </factor opr>
+Parser:                                 <factor>
+Parser:                                   <variable>
+  21:       while i2 <= Limit do begin 
+Parser:                                   </variable>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                             </simple expr>
+Parser:                           </expression>
+Parser:                         </assign statm>
+Parser:                       </statement>
+Parser:                       <statement>
+Parser:                         <while-statm>
+Parser:                           <expression >
+Parser:                             <simple expr >
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <variable>
+Parser:                                   </variable>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                             </simple expr>
+Parser:                             <rel operator>
+Parser:                             </rel operator>
+Parser:                             <simple expr >
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <variable>
+Parser:                                   </variable>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                             </simple expr>
+Parser:                           </expression>
+  22: 	 prime[i2] := false; 
+Parser:                           <statement>
+Parser:                             <compound statm>
+Parser:                               <statm list>
+Parser:                                 <statement>
+Parser:                                   <assign statm>
+Parser:                                     <variable>
+Parser:                                       <expression >
+Parser:                                         <simple expr >
+Parser:                                           <term>
+Parser:                                             <factor>
+Parser:                                               <variable>
+Parser:                                               </variable>
+Parser:                                             </factor>
+Parser:                                           </term>
+Parser:                                         </simple expr>
+Parser:                                       </expression>
+Parser:                                     </variable>
+Parser:                                     <expression >
+Parser:                                       <simple expr >
+Parser:                                         <term>
+Parser:                                           <factor>
+Parser:                                             <variable>
+  23: 	 i2 := i2+i1 
+Parser:                                             </variable>
+Parser:                                           </factor>
+Parser:                                         </term>
+Parser:                                       </simple expr>
+Parser:                                     </expression>
+Parser:                                   </assign statm>
+Parser:                                 </statement>
+Parser:                                 <statement>
+Parser:                                   <assign statm>
+Parser:                                     <variable>
+Parser:                                     </variable>
+Parser:                                     <expression >
+Parser:                                       <simple expr >
+Parser:                                         <term>
+Parser:                                           <factor>
+Parser:                                             <variable>
+Parser:                                             </variable>
+Parser:                                           </factor>
+Parser:                                         </term>
+Parser:                                         <term opr>
+  24:       end; 
+Parser:                                         </term opr>
+Parser:                                         <term>
+Parser:                                           <factor>
+Parser:                                             <variable>
+Parser:                                             </variable>
+Parser:                                           </factor>
+Parser:                                         </term>
+Parser:                                       </simple expr>
+Parser:                                     </expression>
+Parser:                                   </assign statm>
+Parser:                                 </statement>
+Parser:                               </statm list>
+  25:       i1 := i1 + 1 
+Parser:                             </compound statm>
+Parser:                           </statement>
+Parser:                         </while-statm>
+Parser:                       </statement>
+Parser:                       <statement>
+Parser:                         <assign statm>
+Parser:                           <variable>
+Parser:                           </variable>
+Parser:                           <expression >
+Parser:                             <simple expr >
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <variable>
+Parser:                                   </variable>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                               <term opr>
+  26:    end 
+Parser:                               </term opr>
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <constant>
+Parser:                                     <number literal>
+  27: end; {FindPrimes} 
+Parser:                                     </number literal>
+Parser:                                   </constant>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                             </simple expr>
+Parser:                           </expression>
+Parser:                         </assign statm>
+Parser:                       </statement>
+Parser:                     </statm list>
+Parser:                   </compound statm>
+Parser:                 </statement>
+Parser:               </while-statm>
+Parser:             </statement>
+Parser:           </statm list>
+  28:  
+  29:  
+  30: function NDigits (v : integer): integer; 
+Parser:         </block>
+Parser:       </proc decl>
+Parser:       <func decl>
+Parser:         <param decl list>
+Parser:           <param decl>
+Parser:             <type name>
+Parser:             </type name>
+Parser:           </param decl >
+Parser:         </param decl list>
+Parser:         <type name>
+  31: /* How many digits are there in v (which is >= 0)? */ 
+  32: begin 
+Parser:         </type name>
+  33:    if v <= 9 then NDigits := 1 
+Parser:         <block>
+Parser:           <statm list>
+Parser:             <statement>
+Parser:               <if-statm>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                   <rel operator>
+Parser:                   </rel operator>
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:                 <statement>
+Parser:                   <assign statm>
+Parser:                     <variable>
+Parser:                     </variable>
+  34:              else NDigits := 1 + Ndigits(v div 10) 
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <number literal>
+Parser:                               </number literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                   </assign statm>
+Parser:                 </statement>
+Parser:                 <statement>
+Parser:                   <assign statm>
+Parser:                     <variable>
+Parser:                     </variable>
+Parser:                     <expression >
+Parser:                       <simple expr >
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <constant>
+Parser:                               <number literal>
+Parser:                               </number literal>
+Parser:                             </constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                         <term opr>
+Parser:                         </term opr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <func call>
+Parser:                               <expression >
+Parser:                                 <simple expr >
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable>
+Parser:                                     </factor>
+Parser:                                     <factor opr>
+Parser:                                     </factor opr>
+Parser:                                     <factor>
+Parser:                                       <constant>
+Parser:                                         <number literal>
+  35: end; {NDigits} 
+Parser:                                         </number literal>
+Parser:                                       </constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                             </func call>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                   </assign statm>
+Parser:                 </statement>
+Parser:               </if-statm>
+Parser:             </statement>
+Parser:           </statm list>
+  36:  
+  37:  
+  38: procedure P4 (x	: integer); 
+Parser:         </block>
+Parser:       </func decl>
+Parser:       <proc decl>
+Parser:         <param decl list>
+Parser:           <param decl>
+Parser:             <type name>
+Parser:             </type name>
+Parser:           </param decl >
+  39: /* *Note* Equivalent to "printf("%4d",x);" in C. */ 
+  40: var NSpaces : integer; 
+Parser:         </param decl list>
+Parser:         <block>
+Parser:           <var decl part>
+Parser:             <var decl>
+Parser:               <type>
+Parser:                 <type name>
+  41: begin 
+Parser:                 </type name>
+Parser:               </type>
+  42:    NSpaces := 4 - NDigits(x); 
+Parser:             </var decl >
+Parser:           </var decl part>
+Parser:           <statm list>
+Parser:             <statement>
+Parser:               <assign statm>
+Parser:                 <variable>
+Parser:                 </variable>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                     <term opr>
+Parser:                     </term opr>
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <func call>
+Parser:                           <expression >
+Parser:                             <simple expr >
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <variable>
+Parser:                                   </variable>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                             </simple expr>
+Parser:                           </expression>
+  43:    while NSpaces > 0 do begin 
+Parser:                         </func call>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </assign statm>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <while-statm>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                   <rel operator>
+Parser:                   </rel operator>
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  44:       write(' ');  NSpaces := NSpaces-1 
+Parser:                 <statement>
+Parser:                   <compound statm>
+Parser:                     <statm list>
+Parser:                       <statement>
+Parser:                         <proc call>
+Parser:                           <expression >
+Parser:                             <simple expr >
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <constant>
+Parser:                                     <char literal>
+Parser:                                     </char literal>
+Parser:                                   </constant>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                             </simple expr>
+Parser:                           </expression>
+Parser:                         </proc call>
+Parser:                       </statement>
+Parser:                       <statement>
+Parser:                         <assign statm>
+Parser:                           <variable>
+Parser:                           </variable>
+Parser:                           <expression >
+Parser:                             <simple expr >
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <variable>
+Parser:                                   </variable>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                               <term opr>
+  45:    end; 
+Parser:                               </term opr>
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <constant>
+Parser:                                     <number literal>
+Parser:                                     </number literal>
+Parser:                                   </constant>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                             </simple expr>
+Parser:                           </expression>
+Parser:                         </assign statm>
+Parser:                       </statement>
+Parser:                     </statm list>
+  46:    write(x); 
+Parser:                   </compound statm>
+Parser:                 </statement>
+Parser:               </while-statm>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  47: end; {P4} 
+Parser:               </proc call>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <empty statm>
+Parser:               </empty statm>
+Parser:             </statement>
+Parser:           </statm list>
+  48:  
+  49:  
+  50: procedure PrintPrimes; 
+Parser:         </block>
+Parser:       </proc decl>
+Parser:       <proc decl>
+  51: var i	    : integer; 
+Parser:         <block>
+Parser:           <var decl part>
+Parser:             <var decl>
+Parser:               <type>
+Parser:                 <type name>
+  52:    NPrinted : integer; 
+Parser:                 </type name>
+Parser:               </type>
+Parser:             </var decl >
+Parser:             <var decl>
+Parser:               <type>
+Parser:                 <type name>
+  53: begin 
+Parser:                 </type name>
+Parser:               </type>
+  54:    i := 2;  NPrinted := 0; 
+Parser:             </var decl >
+Parser:           </var decl part>
+Parser:           <statm list>
+Parser:             <statement>
+Parser:               <assign statm>
+Parser:                 <variable>
+Parser:                 </variable>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </assign statm>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <assign statm>
+Parser:                 <variable>
+Parser:                 </variable>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <constant>
+Parser:                           <number literal>
+  55:    while i <= Limit do begin 
+Parser:                           </number literal>
+Parser:                         </constant>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </assign statm>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <while-statm>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                   <rel operator>
+Parser:                   </rel operator>
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+  56:       if prime[i] then begin 
+Parser:                 <statement>
+Parser:                   <compound statm>
+Parser:                     <statm list>
+Parser:                       <statement>
+Parser:                         <if-statm>
+Parser:                           <expression >
+Parser:                             <simple expr >
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <variable>
+Parser:                                     <expression >
+Parser:                                       <simple expr >
+Parser:                                         <term>
+Parser:                                           <factor>
+Parser:                                             <variable>
+Parser:                                             </variable>
+Parser:                                           </factor>
+Parser:                                         </term>
+Parser:                                       </simple expr>
+Parser:                                     </expression>
+Parser:                                   </variable>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                             </simple expr>
+Parser:                           </expression>
+  57: 	 if (NPrinted > 0) and (NPrinted mod 10 = 0) then write(eol); 
+Parser:                           <statement>
+Parser:                             <compound statm>
+Parser:                               <statm list>
+Parser:                                 <statement>
+Parser:                                   <if-statm>
+Parser:                                     <expression >
+Parser:                                       <simple expr >
+Parser:                                         <term>
+Parser:                                           <factor>
+Parser:                                             <inner exp>
+Parser:                                               <expression >
+Parser:                                                 <simple expr >
+Parser:                                                   <term>
+Parser:                                                     <factor>
+Parser:                                                       <variable>
+Parser:                                                       </variable>
+Parser:                                                     </factor>
+Parser:                                                   </term>
+Parser:                                                 </simple expr>
+Parser:                                                 <rel operator>
+Parser:                                                 </rel operator>
+Parser:                                                 <simple expr >
+Parser:                                                   <term>
+Parser:                                                     <factor>
+Parser:                                                       <constant>
+Parser:                                                         <number literal>
+Parser:                                                         </number literal>
+Parser:                                                       </constant>
+Parser:                                                     </factor>
+Parser:                                                   </term>
+Parser:                                                 </simple expr>
+Parser:                                               </expression>
+Parser:                                             </inner exp >
+Parser:                                           </factor>
+Parser:                                           <factor opr>
+Parser:                                           </factor opr>
+Parser:                                           <factor>
+Parser:                                             <inner exp>
+Parser:                                               <expression >
+Parser:                                                 <simple expr >
+Parser:                                                   <term>
+Parser:                                                     <factor>
+Parser:                                                       <variable>
+Parser:                                                       </variable>
+Parser:                                                     </factor>
+Parser:                                                     <factor opr>
+Parser:                                                     </factor opr>
+Parser:                                                     <factor>
+Parser:                                                       <constant>
+Parser:                                                         <number literal>
+Parser:                                                         </number literal>
+Parser:                                                       </constant>
+Parser:                                                     </factor>
+Parser:                                                   </term>
+Parser:                                                 </simple expr>
+Parser:                                                 <rel operator>
+Parser:                                                 </rel operator>
+Parser:                                                 <simple expr >
+Parser:                                                   <term>
+Parser:                                                     <factor>
+Parser:                                                       <constant>
+Parser:                                                         <number literal>
+Parser:                                                         </number literal>
+Parser:                                                       </constant>
+Parser:                                                     </factor>
+Parser:                                                   </term>
+Parser:                                                 </simple expr>
+Parser:                                               </expression>
+Parser:                                             </inner exp >
+Parser:                                           </factor>
+Parser:                                         </term>
+Parser:                                       </simple expr>
+Parser:                                     </expression>
+Parser:                                     <statement>
+Parser:                                       <proc call>
+Parser:                                         <expression >
+Parser:                                           <simple expr >
+Parser:                                             <term>
+Parser:                                               <factor>
+Parser:                                                 <variable>
+Parser:                                                 </variable>
+Parser:                                               </factor>
+Parser:                                             </term>
+Parser:                                           </simple expr>
+Parser:                                         </expression>
+  58: 	 P4(i);  NPrinted := NPrinted + 1; 
+Parser:                                       </proc call>
+Parser:                                     </statement>
+Parser:                                   </if-statm>
+Parser:                                 </statement>
+Parser:                                 <statement>
+Parser:                                   <proc call>
+Parser:                                     <expression >
+Parser:                                       <simple expr >
+Parser:                                         <term>
+Parser:                                           <factor>
+Parser:                                             <variable>
+Parser:                                             </variable>
+Parser:                                           </factor>
+Parser:                                         </term>
+Parser:                                       </simple expr>
+Parser:                                     </expression>
+Parser:                                   </proc call>
+Parser:                                 </statement>
+Parser:                                 <statement>
+Parser:                                   <assign statm>
+Parser:                                     <variable>
+Parser:                                     </variable>
+Parser:                                     <expression >
+Parser:                                       <simple expr >
+Parser:                                         <term>
+Parser:                                           <factor>
+Parser:                                             <variable>
+Parser:                                             </variable>
+Parser:                                           </factor>
+Parser:                                         </term>
+Parser:                                         <term opr>
+Parser:                                         </term opr>
+Parser:                                         <term>
+Parser:                                           <factor>
+Parser:                                             <constant>
+Parser:                                               <number literal>
+  59:       end; 
+Parser:                                               </number literal>
+Parser:                                             </constant>
+Parser:                                           </factor>
+Parser:                                         </term>
+Parser:                                       </simple expr>
+Parser:                                     </expression>
+Parser:                                   </assign statm>
+Parser:                                 </statement>
+Parser:                                 <statement>
+Parser:                                   <empty statm>
+Parser:                                   </empty statm>
+Parser:                                 </statement>
+Parser:                               </statm list>
+  60:       i := i + 1; 
+Parser:                             </compound statm>
+Parser:                           </statement>
+Parser:                         </if-statm>
+Parser:                       </statement>
+Parser:                       <statement>
+Parser:                         <assign statm>
+Parser:                           <variable>
+Parser:                           </variable>
+Parser:                           <expression >
+Parser:                             <simple expr >
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <variable>
+Parser:                                   </variable>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                               <term opr>
+Parser:                               </term opr>
+Parser:                               <term>
+Parser:                                 <factor>
+Parser:                                   <constant>
+Parser:                                     <number literal>
+  61:    end; 
+Parser:                                     </number literal>
+Parser:                                   </constant>
+Parser:                                 </factor>
+Parser:                               </term>
+Parser:                             </simple expr>
+Parser:                           </expression>
+Parser:                         </assign statm>
+Parser:                       </statement>
+Parser:                       <statement>
+Parser:                         <empty statm>
+Parser:                         </empty statm>
+Parser:                       </statement>
+Parser:                     </statm list>
+  62:    write(eol) 
+Parser:                   </compound statm>
+Parser:                 </statement>
+Parser:               </while-statm>
+Parser:             </statement>
+Parser:             <statement>
+Parser:               <proc call>
+Parser:                 <expression >
+Parser:                   <simple expr >
+Parser:                     <term>
+Parser:                       <factor>
+Parser:                         <variable>
+  63: end; {PrintPrimes} 
+Parser:                         </variable>
+Parser:                       </factor>
+Parser:                     </term>
+Parser:                   </simple expr>
+Parser:                 </expression>
+Parser:               </proc call>
+Parser:             </statement>
+Parser:           </statm list>
+  64:  
+  65:  
+  66: begin {main program} 
+Parser:         </block>
+  67:    i := 2; 
+Parser:       </proc decl>
+Parser:       <statm list>
+Parser:         <statement>
+Parser:           <assign statm>
+Parser:             <variable>
+Parser:             </variable>
+Parser:             <expression >
+Parser:               <simple expr >
+Parser:                 <term>
+Parser:                   <factor>
+Parser:                     <constant>
+Parser:                       <number literal>
+  68:    while i <= Limit do begin prime[i] := true;  i := i+1 end; 
+Parser:                       </number literal>
+Parser:                     </constant>
+Parser:                   </factor>
+Parser:                 </term>
+Parser:               </simple expr>
+Parser:             </expression>
+Parser:           </assign statm>
+Parser:         </statement>
+Parser:         <statement>
+Parser:           <while-statm>
+Parser:             <expression >
+Parser:               <simple expr >
+Parser:                 <term>
+Parser:                   <factor>
+Parser:                     <variable>
+Parser:                     </variable>
+Parser:                   </factor>
+Parser:                 </term>
+Parser:               </simple expr>
+Parser:               <rel operator>
+Parser:               </rel operator>
+Parser:               <simple expr >
+Parser:                 <term>
+Parser:                   <factor>
+Parser:                     <variable>
+Parser:                     </variable>
+Parser:                   </factor>
+Parser:                 </term>
+Parser:               </simple expr>
+Parser:             </expression>
+Parser:             <statement>
+Parser:               <compound statm>
+Parser:                 <statm list>
+Parser:                   <statement>
+Parser:                     <assign statm>
+Parser:                       <variable>
+Parser:                         <expression >
+Parser:                           <simple expr >
+Parser:                             <term>
+Parser:                               <factor>
+Parser:                                 <variable>
+Parser:                                 </variable>
+Parser:                               </factor>
+Parser:                             </term>
+Parser:                           </simple expr>
+Parser:                         </expression>
+Parser:                       </variable>
+Parser:                       <expression >
+Parser:                         <simple expr >
+Parser:                           <term>
+Parser:                             <factor>
+Parser:                               <variable>
+Parser:                               </variable>
+Parser:                             </factor>
+Parser:                           </term>
+Parser:                         </simple expr>
+Parser:                       </expression>
+Parser:                     </assign statm>
+Parser:                   </statement>
+Parser:                   <statement>
+Parser:                     <assign statm>
+Parser:                       <variable>
+Parser:                       </variable>
+Parser:                       <expression >
+Parser:                         <simple expr >
+Parser:                           <term>
+Parser:                             <factor>
+Parser:                               <variable>
+Parser:                               </variable>
+Parser:                             </factor>
+Parser:                           </term>
+Parser:                           <term opr>
+Parser:                           </term opr>
+Parser:                           <term>
+Parser:                             <factor>
+Parser:                               <constant>
+Parser:                                 <number literal>
+Parser:                                 </number literal>
+Parser:                               </constant>
+Parser:                             </factor>
+Parser:                           </term>
+Parser:                         </simple expr>
+Parser:                       </expression>
+Parser:                     </assign statm>
+Parser:                   </statement>
+Parser:                 </statm list>
+  69:  
+  70:    /* Find and print the primes: */ 
+  71:    FindPrimes;  PrintPrimes; 
+Parser:               </compound statm>
+Parser:             </statement>
+Parser:           </while-statm>
+Parser:         </statement>
+Parser:         <statement>
+Parser:           <proc call>
+Parser:           </proc call>
+Parser:         </statement>
+Parser:         <statement>
+Parser:           <proc call>
+  72: end. {main program} 
+Parser:           </proc call>
+Parser:         </statement>
+Parser:         <statement>
+Parser:           <empty statm>
+Parser:           </empty statm>
+Parser:         </statement>
+Parser:       </statm list>
+Parser:     </block>
+Parser:   </program>
+
+program Primes ; 
+
+const Limit = 1000 ; 
+
+var NPrinted:array [2..Limit]  ofBoolean;NPrinted:integer;
+
+ function NDigits( v:integer ): integer;
+
+begin 
+   if v <= 9 then 
+      NDigits:=1
+    else 
+        NDigits:=1 + (v div 10)
+end;
+
+
+
+procedureFindPrimes;
+var NPrinted:integer;NPrinted:Integer;
+
+
+begin 
+
+i1:=2 ; 
+while i1 <= Limit div 2 do
+begin
+    i2:=2  i1 ; 
+    while i2 <= Limit do
+      begin
+          prime [ i2 ] :=false ; 
+
+            i2:=i2 + i1
+          end ; 
+
+          i1:=i1 + 1
+        end
+    end;procedureP4( x:integer );
+    var NPrinted:integer;
+
+
+  begin 
+
+      NSpaces:=4 - (x) ; 
+      while NSpaces > 0 do
+        beginwrite(' ') ; 
+
+            NSpaces:=NSpaces - 1
+          end ; 
+        write(x) ; 
+        
+      end;procedurePrintPrimes;
+  var NPrinted:integer;NPrinted:integer;
+
+
+begin 
+
+    i:=2 ; 
+
+      NPrinted:=0 ; 
+      while i <= Limit do
+        begin if prime [ i ]  then begin if (NPrinted > 0) and (NPrinted mod 10 = 0) then write(eol) ; 
+                    P4(i) ; 
+
+                      NPrinted:=NPrinted + 1 ; 
+                      
+                    end ; 
+
+                      i:=i + 1 ; 
+                      
+                    end ; 
+                  write(eol)
+                end;
+
+              begin 
+
+                  i:=2 ; 
+                  while i <= Limit do
+                    begin
+                        prime [ i ] :=true ; 
+
+                          i:=i + 1
+                        end ; 
+                      FindPrimes ; 
+                      PrintPrimes ; 
+                      
+                    end.
